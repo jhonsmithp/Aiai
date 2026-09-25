@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="bn">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>My Personal AI</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<main class="app">
+  <header class="top">
+    <div><h1>My Personal AI</h1><p>Ask • Search • Code • Create</p></div>
+    <button id="clear" class="secondary">Clear</button>
+  </header>
+
+  <section id="chat" class="chat">
+    <div class="row ai"><div class="bubble">হ্যালো বন্ধু ❤️ আমি তোমার AI assistant। কী করতে চাও বলো।</div></div>
+  </section>
+
+  <form id="form" class="composer">
+    <textarea id="input" placeholder="তোমার প্রশ্ন বা নির্দেশ লিখো..." rows="1"></textarea>
+    <div class="controls">
+      <label><input id="web" type="checkbox"> Web Search</label>
+      <button id="send" type="submit">Send</button>
+    </div>
+  </form>
+</main>
+<script src="app.js"></script>
+</body>
+</html>
