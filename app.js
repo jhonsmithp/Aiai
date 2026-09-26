@@ -1,6 +1,6 @@
 // IMPORTANT: Put your Vercel API URL here.
 // Example: https://your-project.vercel.app/api/chat
-const API_URL = "PASTE_YOUR_VERCEL_API_URL_HERE";
+const API_URL = "const API_URL = "https://aiai-mu.vercel.app/api/chat";";
 
 const chat=document.getElementById("chat"), form=document.getElementById("form"),
 input=document.getElementById("input"), send=document.getElementById("send"),
