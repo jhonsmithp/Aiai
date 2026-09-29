@@ -1,5 +1,4 @@
 // IMPORTANT: Put your Vercel API URL here.
-// Example: https://your-project.vercel.app/api/chat
 const API_URL = "https://aiai-mu.vercel.app/api/chat";
 
 const chat = document.getElementById("chat");
@@ -13,18 +12,14 @@ let history = [];
 
 function add(role, text) {
   const row = document.createElement("div");
-
-  row.className =
-    "row " + (role === "user" ? "user" : "ai");
+  row.className = "row " + (role === "user" ? "user" : "ai");
 
   const bubble = document.createElement("div");
-
   bubble.className = "bubble";
   bubble.textContent = text;
 
   row.appendChild(bubble);
   chat.appendChild(row);
-
   chat.scrollTop = chat.scrollHeight;
 }
 
@@ -35,7 +30,7 @@ form.addEventListener("submit", async (e) => {
 
   if (!text) return;
 
-  // Show user's message immediately
+  // Show user's message
   add("user", text);
 
   history.push({
@@ -51,11 +46,9 @@ form.addEventListener("submit", async (e) => {
   try {
     const response = await fetch(API_URL, {
       method: "POST",
-
       headers: {
         "Content-Type": "application/json"
       },
-
       body: JSON.stringify({
         messages: history,
         web_search: web.checked
@@ -81,19 +74,15 @@ form.addEventListener("submit", async (e) => {
     });
 
   } catch (error) {
-
     add(
       "assistant",
       "সমস্যা: " + error.message
     );
-
-  } finally {
-
-    send.disabled = false;
-    send.textContent = "Send";
-    input.focus();
-
   }
+
+  send.disabled = false;
+  send.textContent = "Send";
+  input.focus();
 });
 
 clearBtn.addEventListener("click", () => {
@@ -107,13 +96,8 @@ clearBtn.addEventListener("click", () => {
 });
 
 input.addEventListener("keydown", (e) => {
-
-  if (
-    e.key === "Enter" &&
-    !e.shiftKey
-  ) {
+  if (e.key === "Enter" && !e.shiftKey) {
     e.preventDefault();
     form.requestSubmit();
   }
-
 });
